@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.renatojobal.gauzy.R
 import com.renatojobal.gauzy.databinding.FragmentLoginBinding
+import java.lang.RuntimeException
 
 
 /**
@@ -40,6 +41,7 @@ class LoginFragment : Fragment() {
         // Bind data
 
 
+
         // Set up functionality
         setUpFunctionality()
 
@@ -50,6 +52,9 @@ class LoginFragment : Fragment() {
 
     private fun setUpFunctionality() {
        // TODO("Not yet implemented")
+        binding.flCvLoginButton.setOnClickListener {
+
+        }
     }
 
 
