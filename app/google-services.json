@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "322389571901",
+    "project_id": "gauzy-420",
+    "storage_bucket": "gauzy-420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322389571901:android:0bafd912728b3e98e0ed54",
+        "android_client_info": {
+          "package_name": "com.renatojobal.gauzy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322389571901-d7dq5f4sdmaq2a5joqj553f6nh3bcqr1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.renatojobal.gauzy",
+            "certificate_hash": "d7927687c731b0f08372e737397612babd374eaa"
+          }
+        },
+        {
+          "client_id": "322389571901-9d743p703gart6uo6qp07dqrusqberr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA51L76D7k484LoC597UcMpqvuVkjj3o8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322389571901-9d743p703gart6uo6qp07dqrusqberr1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
