@@ -8,17 +8,76 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="?attr/colorSurface"
+        android:paddingHorizontal="@dimen/main_horizontal_padding">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="182dp"
-            android:layout_height="17dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/fl_lbl_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/app_name"
+            android:textAppearance="?attr/textAppearanceHeadline1"
+            android:textColor="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fl_lbl_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="login_subtitle"
+
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fl_lbl_title" />
+
+        <TextView
+            android:id="@+id/fl_lbl_login_instruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="login_instruction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fl_lbl_subtitle" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:cardBackgroundColor="@color/blue_700"
+            app:layout_constraintTop_toBottomOf="@+id/fl_lbl_login_instruction">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/login_button_label"
+                    android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_windows"
+                    android:contentDescription="@string/login_button_label_description" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

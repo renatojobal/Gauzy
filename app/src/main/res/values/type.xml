@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--Typography-->
+    <style name="TextAppearance.Gauzy.Headline1" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa_light</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa_light</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa_bold</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa_bold</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa_bold</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/color_on_surface_emphasis_medium</item>
+        <item name="fontFamily">@font/comfortaa</item>
+    </style>
+
+    <style name="TextAppearance.Gauzy.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+        <item name="fontFamily">@font/comfortaa</item>
+    </style>
+
+
+
+</resources>

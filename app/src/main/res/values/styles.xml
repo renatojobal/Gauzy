@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="ListDivider" >
+
+        <item name="android:layout_height">@dimen/list_divider_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="alpha">0.5</item>
+        <item name="android:background">?attr/colorOnPrimary</item>
+
+    </style>
+
+    <style name="Widget.Gauzy.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+
+    <style name="Widget.Gauzy.MaterialCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Gauzy.MaterialCardView</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Gauzy.MaterialCardView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+</resources>

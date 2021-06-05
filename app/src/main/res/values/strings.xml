@@ -1,5 +1,8 @@
 <resources>
+
     <string name="app_name">Gauzy</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_button_label">Microsoft</string>
+    <string name="login_button_label_description">Microsoft logo</string>
+
+
 </resources>

@@ -5,18 +5,55 @@
 
 
     <!-- Base application theme. -->
-    <style name="Theme.Gauzy.Default" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Gauzy.Default" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/rose_500</item>
-        <item name="colorPrimaryVariant">@color/rose_700</item>
+        <item name="colorPrimaryVariant">@color/rose_200</item>
+        <item name="colorAccent">@color/rose_700</item>
         <item name="colorOnPrimary">@color/white</item>
+
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blue_200</item>
+        <item name="colorSecondary">@color/blue_500</item>
         <item name="colorSecondaryVariant">@color/blue_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorSurface">@color/white</item>
+        <item name="colorPrimarySurface">@color/white</item>
+        <item name="colorPrimarySurfaceVariant">@color/grey</item>
+
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorOnPrimarySurface">@color/black</item>
+
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+
+
+        <!--Typography-->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Gauzy.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Gauzy.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Gauzy.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Gauzy.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Gauzy.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Gauzy.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Gauzy.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Gauzy.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Gauzy.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Gauzy.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Gauzy.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Gauzy.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Gauzy.Overline</item>
+
+        <item name="emphasisHighAlpha">0.87</item>
+        <item name="emphasisMediumAlpha">0.60</item>
+        <item name="emphasisDisabledAlpha">0.38</item>
+
+        <!-- Custom styles -->
+        <item name="android:textViewStyle">@style/Widget.Gauzy.TextView</item>
+
+        <item name="materialCardViewStyle">@style/Widget.Gauzy.MaterialCardView</item>
+
+
     </style>
+
 
 </resources>
