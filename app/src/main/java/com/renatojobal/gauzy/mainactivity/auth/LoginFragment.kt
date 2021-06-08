@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.renatojobal.gauzy.R
 import com.renatojobal.gauzy.databinding.FragmentLoginBinding
+import com.renatojobal.gauzy.mainactivity.SharedViewModel
 import java.lang.RuntimeException
 
 
@@ -20,12 +23,13 @@ class LoginFragment : Fragment() {
     private lateinit var binding : FragmentLoginBinding
 
     // View model
+    private val sharedViewModel : SharedViewModel by activityViewModels()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         // Get binding
         binding = DataBindingUtil.inflate(
@@ -34,8 +38,6 @@ class LoginFragment : Fragment() {
             container,
             false
         )
-
-        // Todo: View model
 
 
         // Bind data
@@ -51,7 +53,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun setUpFunctionality() {
-       // TODO("Not yet implemented")
+
         binding.flCvLoginButton.setOnClickListener {
 
         }
