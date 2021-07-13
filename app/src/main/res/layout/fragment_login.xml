@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:background="?attr/colorSurface"
         android:paddingHorizontal="@dimen/main_horizontal_padding"
-        android:backgroundTint="@color/white">
+        android:backgroundTint="?attr/colorSurface">
 
         <TextView
             android:id="@+id/fl_lbl_title"

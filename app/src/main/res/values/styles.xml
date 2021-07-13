@@ -18,6 +18,13 @@
 
     <style name="Widget.Gauzy.MaterialCardView" parent="Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Gauzy.MaterialCardView</item>
+
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Gauzy.Card</item>
+    </style>
+
+    <style name="ThemeOverlay.Gauzy.Card" parent="">
+        <item name="backgroundTint">?attr/colorSecondary</item>
+
     </style>
 
     <style name="ShapeAppearanceOverlay.Gauzy.MaterialCardView" parent="">
