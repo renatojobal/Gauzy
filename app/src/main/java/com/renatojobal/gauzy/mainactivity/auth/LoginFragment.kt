@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.fragment.findNavController
 import com.renatojobal.gauzy.R
 import com.renatojobal.gauzy.databinding.FragmentLoginBinding
 import com.renatojobal.gauzy.mainactivity.SharedViewModel
@@ -55,7 +56,7 @@ class LoginFragment : Fragment() {
     private fun setUpFunctionality() {
 
         binding.flCvLoginButton.setOnClickListener {
-
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
         }
     }
 
