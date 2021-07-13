@@ -1,9 +1,11 @@
 package com.renatojobal.gauzy.mainactivity.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.renatojobal.gauzy.R
 import com.renatojobal.gauzy.databinding.ItemComponentBinding
@@ -14,6 +16,11 @@ class ComponentAdapter(
     private val componentList: LiveData<List<ComponentModel>>
 ) : RecyclerView.Adapter<ComponentAdapter.ComponentViewHolder>(){
 
+    interface Listener{
+
+        abstract fun onClickListener(view : View)
+
+    }
 
     /**
      * View holder in charge of bind data with layout
@@ -29,7 +36,10 @@ class ComponentAdapter(
 
             itemBinding.component = componentModel
 
+            itemBinding.root.setOnClickListener{ view ->
+                view.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment())
 
+            }
 
         }
 

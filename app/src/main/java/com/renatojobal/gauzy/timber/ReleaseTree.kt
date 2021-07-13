@@ -1,6 +1,7 @@
 package com.renatojobal.gauzy.timber
 
 import android.util.Log
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import timber.log.Timber
 
 
@@ -36,7 +37,7 @@ class ReleaseTree : Timber.Tree() {
         if (isLoggable(tag, priority)) {
 
             // Report caught exception to your crash library
-            //FirebaseCrashlytics.getInstance().log(tag + message + t?.message)
+            FirebaseCrashlytics.getInstance().log(tag + message + t?.message)
 
 
 
