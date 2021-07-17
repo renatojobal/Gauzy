@@ -5,6 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".mainactivity.detail.DetailFragment">
 
+    <data>
+        <variable
+            name="component"
+            type="com.renatojobal.gauzy.repository.model.ComponentModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,10 +18,17 @@
 >
 
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fd_rv_reviews"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:paddingTop="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_review"
+            tools:visibility="gone" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

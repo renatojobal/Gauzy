@@ -14,6 +14,7 @@ import com.renatojobal.gauzy.databinding.FragmentDetailBinding
 import com.renatojobal.gauzy.databinding.FragmentHomeBinding
 import com.renatojobal.gauzy.mainactivity.SharedViewModel
 import com.renatojobal.gauzy.mainactivity.home.ComponentAdapter
+import timber.log.Timber
 
 
 /**
@@ -27,7 +28,8 @@ class DetailFragment : Fragment() {
     // View model
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
-
+    // Adapter
+    private lateinit var reviewAdapter: ReviewAdapter
 
 
     override fun onCreateView(
@@ -54,7 +56,34 @@ class DetailFragment : Fragment() {
     }
 
     private fun setUpFunctionality() {
+        Log.d("DetailFragment", "Setting up functionality")
 
+        // Set up recycler view
+
+        // Set up recycler view
+        reviewAdapter = ReviewAdapter(sharedViewModel.getTargetReviews)
+
+        binding.fdRvReviews.apply {
+            layoutManager = LinearLayoutManager(
+                requireContext(),
+                LinearLayoutManager.VERTICAL,
+                false
+            )
+            adapter = reviewAdapter
+        }
+
+        // Set up listener of the recycler view
+        sharedViewModel.getTargetReviews.observe(viewLifecycleOwner, {
+            if (it.isEmpty()) {
+                Log.d("DetailFragment", "List is empty")
+            } else {
+                // Show the moons as a list
+                Log.d("DetailFragment", "List is not empty")
+                Log.d("DetailFragment", "List showing: ${it.size} item")
+                binding.fdRvReviews.adapter = reviewAdapter
+
+            }
+        })
 
     }
 }

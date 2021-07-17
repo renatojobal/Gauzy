@@ -26,5 +26,6 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.renatojobal.gauzy.mainactivity.detail.DetailFragment"
-        android:label="DetailFragment" />
+        android:label="DetailFragment" >
+    </fragment>
 </navigation>

@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.renatojobal.gauzy.R
 import com.renatojobal.gauzy.databinding.FragmentHomeBinding
 import com.renatojobal.gauzy.mainactivity.SharedViewModel
+import com.renatojobal.gauzy.repository.model.ComponentModel
 import timber.log.Timber
 
 
@@ -60,7 +62,15 @@ class HomeFragment : Fragment() {
 
 
         // Set up recycler view
-        componentAdapter = ComponentAdapter(sharedViewModel.getComponentsAsLiveData)
+        componentAdapter = ComponentAdapter(sharedViewModel.getComponentsAsLiveData, object : ComponentAdapter.Listener {
+            override fun onClickListener(view: View, componentModel: ComponentModel) {
+
+                sharedViewModel.setSelectedComponent(componentModel)
+
+                view.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment())
+            }
+
+        })
 
         binding.fhRvComponents.apply {
             layoutManager = LinearLayoutManager(
@@ -74,11 +84,11 @@ class HomeFragment : Fragment() {
         // Set up listener of the recycler view
         sharedViewModel.getComponentsAsLiveData.observe(viewLifecycleOwner, {
             if (it.isEmpty()) {
-                Log.d("HomeFragment","List is empty")
+                Timber.d("List is empty")
             } else {
                 // Show the moons as a list
-                Log.d("HomeFragment","List is not empty")
-                Log.d("HomeFragment","List showing: ${it.size} item")
+                Timber.d("List is not empty")
+                Timber.d("List showing: ${it.size} item")
                 binding.fhRvComponents.adapter = componentAdapter
 
             }

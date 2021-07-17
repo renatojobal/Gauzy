@@ -13,19 +13,20 @@ import com.renatojobal.gauzy.repository.model.ComponentModel
 import timber.log.Timber
 
 class ComponentAdapter(
-    private val componentList: LiveData<List<ComponentModel>>
+    private val componentList: LiveData<List<ComponentModel>>,
+    private val listener: Listener
 ) : RecyclerView.Adapter<ComponentAdapter.ComponentViewHolder>(){
 
     interface Listener{
 
-        abstract fun onClickListener(view : View)
+        abstract fun onClickListener(view : View, componentModel: ComponentModel)
 
     }
 
     /**
      * View holder in charge of bind data with layout
      */
-    class ComponentViewHolder(private val itemBinding: ItemComponentBinding):
+    class ComponentViewHolder(private val itemBinding: ItemComponentBinding, private val listener: Listener):
     RecyclerView.ViewHolder(itemBinding.root){
 
         /**
@@ -37,7 +38,8 @@ class ComponentAdapter(
             itemBinding.component = componentModel
 
             itemBinding.root.setOnClickListener{ view ->
-                view.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment())
+                listener.onClickListener(view, componentModel)
+
 
             }
 
@@ -61,7 +63,7 @@ class ComponentAdapter(
             false
         )
 
-        return ComponentViewHolder(binding)
+        return ComponentViewHolder(binding, listener)
     }
 
     /**
