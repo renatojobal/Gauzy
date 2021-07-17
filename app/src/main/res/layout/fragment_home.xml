@@ -8,7 +8,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="?attr/colorSurface">
+        android:backgroundTint="?attr/colorSurface"
+        android:paddingTop="16dp"
+        android:paddingHorizontal="16dp">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -18,9 +20,9 @@
             android:paddingTop="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:itemCount="1"
+            tools:itemCount="10"
             tools:listitem="@layout/item_component"
-            tools:visibility="gone" />
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
