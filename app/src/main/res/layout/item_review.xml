@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="review"
             type="com.renatojobal.gauzy.repository.model.ReviewModel" />
@@ -13,25 +14,62 @@
         android:id="@+id/ic_main_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        app:cardCornerRadius="0dp"
         >
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_baseline_person" />
+
+                <TextView
+                    android:id="@+id/ir_tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Marco Piedrita" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ir_tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="28/04/2021" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/ir_tv_review_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Muy buena materia"
-                android:text="@{review.comment}"/>
+                android:text="@{review.comment}"
+                tools:text="Muy buena materia" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
-
 
 
 </layout>

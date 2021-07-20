@@ -6,6 +6,7 @@
     tools:context=".mainactivity.detail.DetailFragment">
 
     <data>
+
         <variable
             name="component"
             type="com.renatojobal.gauzy.repository.model.ComponentModel" />
@@ -14,68 +15,70 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="?attr/colorSurface"
-        android:paddingTop="16dp"
+        android:background="?attr/colorSecondary"
         android:paddingHorizontal="16dp"
->
+
+        android:paddingTop="16dp">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fd_rv_reviews"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingTop="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/divider"
-            tools:itemCount="20"
-            tools:listitem="@layout/item_review"
-            tools:visibility="visible" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{component.name}"
-            tools:text="Cerámica 1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{component.career}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:text="Artes y diseño" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Califique su experencia"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider2" />
-
-        <View
-            android:id="@+id/divider"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintTop_toBottomOf="@+id/button"
-            tools:layout_editor_absoluteX="16dp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp">
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:layout_editor_absoluteX="25dp" />
+            <TextView
+                android:id="@+id/fd_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{component.name}"
+                android:textColor="?attr/colorOnSecondary"
+                tools:text="Cerámica 1" />
+
+            <TextView
+                android:id="@+id/fd_tv_career"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{component.career}"
+                android:textColor="?attr/colorOnSecondary"
+                tools:text="Artes y diseño" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="?android:attr/listDivider" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Califique su experencia" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/td_tv_label_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calificaciones y reseñas:"
+                android:textColor="?attr/colorOnSecondary" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fd_rv_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="24dp"
+                tools:itemCount="20"
+                tools:listitem="@layout/item_review" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

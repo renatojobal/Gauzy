@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="component"
             type="com.renatojobal.gauzy.repository.model.ComponentModel" />
@@ -13,31 +14,36 @@
         android:id="@+id/ic_main_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="?attr/colorSecondary"
         android:layout_marginTop="8dp"
+        android:backgroundTint="?attr/colorSecondary"
 
->
+
+        >
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="12dp">
 
 
             <TextView
                 android:id="@+id/ic_title"
+                style="?attr/textAppearanceSubtitle1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{component.name}"
+                android:textColor="?attr/colorOnSecondary"
                 tools:text="Esculto cerámica" />
 
             <TextView
                 android:id="@+id/ic_career"
+                style="?attr/textAppearanceSubtitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{component.career}"
+                android:textColor="?attr/colorOnSecondary"
                 tools:text="Artes plásticas" />
 
             <LinearLayout
@@ -47,10 +53,12 @@
 
                 <TextView
                     android:id="@+id/ic_score"
+                    style="?attr/textAppearanceBody2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@{String.valueOf(component.score)}"
+                    android:textColor="?attr/colorOnSecondary"
                     tools:text="4.7" />
 
                 <ImageView
@@ -58,14 +66,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_star" />
+                    app:srcCompat="@drawable/ic_baseline_star"
+                    app:tint="?attr/colorOnSecondary" />
 
                 <TextView
                     android:id="@+id/ic_reviews"
+                    style="?attr/textAppearanceBody2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@{String.valueOf(component.reviewsNumber)}"
+                    android:textColor="?attr/colorOnSecondary"
                     tools:text="100+" />
 
                 <ImageView
@@ -73,14 +84,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_person" />
+                    app:srcCompat="@drawable/ic_baseline_person"
+                    app:tint="?attr/colorOnSecondary" />
             </LinearLayout>
 
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
-
 
 
 </layout>

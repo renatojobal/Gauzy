@@ -55,5 +55,15 @@
 
     </style>
 
+    <!-- Base application theme. -->
+    <style name="Theme.Gauzy.Purple" parent="Theme.Gauzy.Default">
+
+
+    </style>
+
+
+
+
+
 
 </resources>
