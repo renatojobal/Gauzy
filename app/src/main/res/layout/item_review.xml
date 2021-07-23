@@ -49,6 +49,16 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <RatingBar
+                    android:id="@+id/ratingBar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:clickable="false"
+                    android:stepSize="1"
+                    android:rating="@{review.score}"
+                    android:numStars="5" />
+
                 <TextView
                     android:id="@+id/ir_tv_date"
                     android:layout_width="wrap_content"

@@ -3,7 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".mainactivity.detail.DetailFragment">
+    tools:context=".mainactivity.detail.ComponentDetailFragment">
 
     <data>
 
@@ -44,15 +44,22 @@
                 android:textColor="?attr/colorOnSecondary"
                 tools:text="Artes y diseño" />
 
+            <TextView
+                android:id="@+id/td_tv_label_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calificaciones y reseñas:"
+                android:textColor="?attr/colorOnSecondary" />
+
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="24dp"
-                android:background="?android:attr/listDivider" />
+                android:background="@color/black"  />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/fd_btn_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Califique su experencia" />
@@ -62,14 +69,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
-                android:background="?android:attr/listDivider" />
+                android:background="@color/black" />
 
-            <TextView
-                android:id="@+id/td_tv_label_reviews"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Calificaciones y reseñas:"
-                android:textColor="?attr/colorOnSecondary" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/fd_rv_reviews"

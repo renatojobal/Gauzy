@@ -10,20 +10,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.renatojobal.gauzy.R
-import com.renatojobal.gauzy.databinding.FragmentDetailBinding
-import com.renatojobal.gauzy.databinding.FragmentHomeBinding
+import com.renatojobal.gauzy.databinding.FragmentComponentDetailBinding
 import com.renatojobal.gauzy.mainactivity.SharedViewModel
-import com.renatojobal.gauzy.mainactivity.home.ComponentAdapter
-import timber.log.Timber
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class DetailFragment : Fragment() {
+class ComponentDetailFragment : Fragment() {
 
     // Data binding
-    private lateinit var binding : FragmentDetailBinding
+    private lateinit var binding : FragmentComponentDetailBinding
 
     // View model
     private val sharedViewModel: SharedViewModel by activityViewModels()
@@ -39,7 +36,7 @@ class DetailFragment : Fragment() {
         // Get binding
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_detail,
+            R.layout.fragment_component_detail,
             container,
             false
         )
