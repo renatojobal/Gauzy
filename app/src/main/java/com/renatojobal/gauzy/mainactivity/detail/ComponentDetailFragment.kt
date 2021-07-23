@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.renatojobal.gauzy.R
 import com.renatojobal.gauzy.databinding.FragmentComponentDetailBinding
 import com.renatojobal.gauzy.mainactivity.SharedViewModel
+import timber.log.Timber
 
 
 /**
@@ -72,11 +73,11 @@ class ComponentDetailFragment : Fragment() {
         // Set up listener of the recycler view
         sharedViewModel.getTargetReviews.observe(viewLifecycleOwner, {
             if (it.isEmpty()) {
-                Log.d("DetailFragment", "List is empty")
+                Timber.d("List is empty")
             } else {
                 // Show the moons as a list
-                Log.d("DetailFragment", "List is not empty")
-                Log.d("DetailFragment", "List showing: ${it.size} item")
+                Timber.d("List is not empty")
+                Timber.d("List showing: ${it.size} item")
                 binding.fdRvReviews.adapter = reviewAdapter
 
             }
