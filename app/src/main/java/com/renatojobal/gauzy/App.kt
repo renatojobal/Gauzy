@@ -2,8 +2,6 @@ package com.renatojobal.gauzy
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
-import androidx.viewbinding.BuildConfig
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.renatojobal.gauzy.repository.SharedPrefHelper
 import com.renatojobal.gauzy.timber.DebugTree
@@ -21,12 +19,11 @@ class App : Application(){
     override fun onCreate() {
         super.onCreate()
 
-
         // Set up timber
         setUpTimber()
 
         // Set up shared preferences helper
-//        setUpSharedPreferences()
+        setUpSharedPreferences()
 
 
     }
