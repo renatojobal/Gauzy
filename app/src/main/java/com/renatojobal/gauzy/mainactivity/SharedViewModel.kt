@@ -1,23 +1,32 @@
 package com.renatojobal.gauzy.mainactivity
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.renatojobal.gauzy.repository.model.ComponentModel
 import com.renatojobal.gauzy.repository.model.ReviewModel
+import com.renatojobal.gauzy.repository.model.User
 import timber.log.Timber
+import java.text.NumberFormat
 
 class SharedViewModel(
     private val db: FirebaseFirestore = Firebase.firestore
 ) : ViewModel() {
 
+    /**
+     * Current user
+     */
+    var userSession: User? = null
+
+
     /** List of components to the home screen */
     private val _components = MutableLiveData<List<ComponentModel>>()
     val getComponentsAsLiveData: LiveData<List<ComponentModel>> = _components
+
     /**
      * This will hear any updater from firestore
      */
@@ -38,7 +47,7 @@ class SharedViewModel(
 
                 querySnapshot.documents.forEach { it ->
                     Timber.d("${it.id}")
-                    val docId : String = it.id
+                    val docId: String = it.id
                     it.data?.let { data ->
                         val componentModel = ComponentModel(
                             docId = docId,
@@ -61,7 +70,6 @@ class SharedViewModel(
     }
 
 
-
     /**
      * Selected component with data
      */
@@ -77,6 +85,7 @@ class SharedViewModel(
      */
     private val _targetReviews = MutableLiveData<List<ReviewModel>>()
     val getTargetReviews: LiveData<List<ReviewModel>> = _targetReviews
+
     /**
      * Hear to the reviews of the component change
      */
@@ -100,12 +109,15 @@ class SharedViewModel(
                     val allReviews = ArrayList<ReviewModel>()
 
                     querySnapshot.documents.forEach { it ->
-                        Timber.d( "${it}")
+                        Timber.d("${it}")
                         it.data?.let { data ->
+                            Timber.d("User: ${data["user"]}")
+
                             val reviewModel = ReviewModel(
                                 comment = data["comment"] as String,
-                                score = data["score"] as Long,
-                                user = "TODO"
+                                score = (data["score"] as Double).toFloat(),
+                                user = data["user"] as DocumentReference,
+                                userDisplayName = data ["userDisplayName"] as String
                             )
                             allReviews.add(reviewModel)
                         }
@@ -119,9 +131,53 @@ class SharedViewModel(
             }
     }
 
+    /**
+     * Add the review to the currentComponent and the user in the current session
+     */
+    fun addReview(targetStars: Float, targetComment: String) {
+
+        // Get user info
+
+        // Create review
+        val targetReview = userSession?.let { db.collection("user-collection").document(it.uid) }?.let {
+            ReviewModel(
+                comment = targetComment,
+                score = targetStars,
+                user = it,
+                userDisplayName = userSession?.displayName
+            )
+        }
 
 
 
+        _selectedComponent.value?.docId?.let {
+            if (targetReview != null) {
+                db
+                    .collection("component-collection")
+                    .document(it)
+                    .collection("review-collection")
+                    .add(
+                        targetReview
+                    )
+                    .addOnSuccessListener {
+                        Timber.i("Review added")
+                    }
+                    .addOnFailureListener { e ->
+                        Timber.e(e, "Error adding review")
+                    }
+            }
+        }
+
+    }
+
+    /**
+     * Create a document for the user to allow it be referenced
+     */
+    fun addNewUser(user: User) {
+        db.collection("user-collection")
+            .document(user.uid)
+            .set(user)
+    }
 
 
     /**

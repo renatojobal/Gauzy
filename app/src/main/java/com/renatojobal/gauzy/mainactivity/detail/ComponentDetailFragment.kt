@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.renatojobal.gauzy.R
 import com.renatojobal.gauzy.databinding.FragmentComponentDetailBinding
@@ -83,6 +84,12 @@ class ComponentDetailFragment : Fragment() {
 
             }
         })
+
+
+        // Listener del boton
+        binding.fdBtnScore.setOnClickListener {
+            findNavController().navigate(ComponentDetailFragmentDirections.actionDetailFragmentToReviewDetailFragment())
+        }
 
     }
 }
