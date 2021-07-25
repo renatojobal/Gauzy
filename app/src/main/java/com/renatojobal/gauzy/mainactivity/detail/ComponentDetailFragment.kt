@@ -43,6 +43,7 @@ class ComponentDetailFragment : Fragment() {
         )
 
         // Bind data
+        binding.component = sharedViewModel.getSelectedComponent.value
 
 
         // Set up functionality

@@ -18,21 +18,6 @@ class SharedViewModel(
     /** List of components to the home screen */
     private val _components = MutableLiveData<List<ComponentModel>>()
     val getComponentsAsLiveData: LiveData<List<ComponentModel>> = _components
-
-
-    /**
-     * Selected component with data
-     */
-    private val _selectedComponent: MutableLiveData<ComponentModel> = MutableLiveData()
-
-
-    /**
-     * List of review of selected component
-     */
-    private val _targetReviews = MutableLiveData<List<ReviewModel>>()
-    val getTargetReviews: LiveData<List<ReviewModel>> = _targetReviews
-
-
     /**
      * This will hear any updater from firestore
      */
@@ -75,18 +60,23 @@ class SharedViewModel(
 
     }
 
+
+
     /**
-     * Set the selected component and search for reviews
+     * Selected component with data
      */
+    private val _selectedComponent: MutableLiveData<ComponentModel> = MutableLiveData()
+    val getSelectedComponent: LiveData<ComponentModel> = _selectedComponent
     fun setSelectedComponent(componentModel: ComponentModel) {
-
         _selectedComponent.postValue(componentModel)
-
         listenReviews(componentModel.docId)
-
-
     }
 
+    /**
+     * List of review of selected component
+     */
+    private val _targetReviews = MutableLiveData<List<ReviewModel>>()
+    val getTargetReviews: LiveData<List<ReviewModel>> = _targetReviews
     /**
      * Hear to the reviews of the component change
      */
@@ -128,6 +118,10 @@ class SharedViewModel(
                 }
             }
     }
+
+
+
+
 
 
     /**
