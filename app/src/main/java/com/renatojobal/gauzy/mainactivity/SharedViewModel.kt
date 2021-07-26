@@ -20,7 +20,7 @@ class SharedViewModel(
     /**
      * Current user
      */
-    var userSession: User? = null
+    lateinit var userSession: User
 
 
     /** List of components to the home screen */
@@ -108,18 +108,21 @@ class SharedViewModel(
                 snapshot?.let { querySnapshot ->
                     val allReviews = ArrayList<ReviewModel>()
 
-                    querySnapshot.documents.forEach { it ->
-                        Timber.d("${it}")
-                        it.data?.let { data ->
+                    querySnapshot.documents.forEach { doc ->
+
+                        doc.data?.let { data ->
                             Timber.d("User: ${data["user"]}")
 
-                            val reviewModel = ReviewModel(
+                            Timber.d("Score data type: ${data["score"]!!::class.simpleName}")
+
+                            val reviewModel : ReviewModel = ReviewModel(
                                 comment = data["comment"] as String,
-                                score = (data["score"] as Double).toFloat(),
+                                score = data["score"] as Double,
                                 user = data["user"] as DocumentReference,
                                 userDisplayName = data ["userDisplayName"] as String
                             )
                             allReviews.add(reviewModel)
+
                         }
 
 
@@ -134,19 +137,17 @@ class SharedViewModel(
     /**
      * Add the review to the currentComponent and the user in the current session
      */
-    fun addReview(targetStars: Float, targetComment: String) {
+    fun addReview(targetStars: Double, targetComment: String) {
 
         // Get user info
 
         // Create review
-        val targetReview = userSession?.let { db.collection("user-collection").document(it.uid) }?.let {
-            ReviewModel(
-                comment = targetComment,
-                score = targetStars,
-                user = it,
-                userDisplayName = userSession?.displayName
-            )
-        }
+        val targetReview = ReviewModel(
+            comment = targetComment,
+            score = targetStars,
+            user = userSession.let { db.collection("user-collection").document(it.uid) },
+            userDisplayName = userSession.displayName
+        )
 
 
 

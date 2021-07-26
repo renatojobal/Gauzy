@@ -8,6 +8,9 @@
         <variable
             name="review"
             type="com.renatojobal.gauzy.repository.model.ReviewModel" />
+        <variable
+            name="scoreFloat"
+            type="Float" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -56,7 +59,7 @@
                     android:isIndicator="true"
                     android:clickable="false"
                     android:stepSize="1"
-                    android:rating="@{review.score}"
+                    android:rating="@{scoreFloat}"
                     android:numStars="5" />
 
                 <TextView

@@ -46,6 +46,7 @@ class ReviewDetailFragment : Fragment() {
         binding.user = sharedViewModel.userSession
 
 
+
         // Set up functionality
         setUpFunctionality()
 
@@ -61,7 +62,7 @@ class ReviewDetailFragment : Fragment() {
         binding.frdBtnSumbit.setOnClickListener {
 
             // Get stars
-            val targetStars : Float = binding.ratingBar.rating
+            val targetStars : Double = binding.ratingBar.rating.toDouble()
 
             // Get comment
             val targetComment : String = binding.frdComment.text.toString()

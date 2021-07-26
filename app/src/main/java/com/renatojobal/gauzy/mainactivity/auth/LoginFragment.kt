@@ -29,8 +29,7 @@ class LoginFragment : Fragment() {
 
     // View model
     private val sharedViewModel: SharedViewModel by activityViewModels()
-
-    private lateinit var auth: FirebaseAuth
+    
 
     var provider = OAuthProvider.newBuilder("microsoft.com")
 

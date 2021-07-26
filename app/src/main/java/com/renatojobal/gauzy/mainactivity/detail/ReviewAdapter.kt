@@ -28,6 +28,7 @@ class ReviewAdapter(
             Timber.d("Binding data with layout")
 
             itemBinding.review = reviewModel
+            itemBinding.scoreFloat = reviewModel.score.toFloat()
 
         }
 
