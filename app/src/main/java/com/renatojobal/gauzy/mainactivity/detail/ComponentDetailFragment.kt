@@ -46,6 +46,23 @@ class ComponentDetailFragment : Fragment() {
         // Bind data
         binding.component = sharedViewModel.getSelectedComponent.value
 
+        sharedViewModel.getOwnReview.observe(viewLifecycleOwner, { reviewModel ->
+            if(reviewModel != null){
+                binding.fdBtnScore.visibility = View.GONE
+                binding.fcdOwnReview.root.visibility = View.VISIBLE
+
+                binding.ownReview = reviewModel
+                binding.ownReviewScoreFloat = reviewModel.score.toFloat()
+
+            }else{
+
+                binding.fdBtnScore.visibility = View.VISIBLE
+                binding.fcdOwnReview.root.visibility = View.GONE
+            }
+
+        })
+
+
 
         // Set up functionality
         setUpFunctionality()

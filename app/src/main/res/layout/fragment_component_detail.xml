@@ -10,6 +10,14 @@
         <variable
             name="component"
             type="com.renatojobal.gauzy.repository.model.ComponentModel" />
+
+        <variable
+            name="ownReview"
+            type="com.renatojobal.gauzy.repository.model.ReviewModel" />
+        <variable
+            name="ownReviewScoreFloat"
+            type="Float" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,11 +66,35 @@
                 android:layout_marginTop="24dp"
                 android:background="@color/black"  />
 
-            <Button
-                android:id="@+id/fd_btn_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Califique su experencia" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:visibility="gone"
+                    android:id="@+id/fd_btn_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Califique su experencia"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:visibility="gone"
+                    android:id="@+id/fcd_own_review"
+                    layout="@layout/item_review"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:review="@{ownReview}"
+                    app:scoreFloat="@{ownReviewScoreFloat}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fd_btn_score" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <View
                 android:id="@+id/divider2"

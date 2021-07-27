@@ -32,4 +32,13 @@
         <item name="cornerSize">16dp</item>
     </style>
 
+    <style name="Widget.Gauzy.Button" parent="Widget.MaterialComponents.Button">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">80dp</item>
+        <item name="android:paddingStart">60dp</item>
+        <item name="android:paddingEnd">60dp</item>
+    </style>
+
+
+
 </resources>

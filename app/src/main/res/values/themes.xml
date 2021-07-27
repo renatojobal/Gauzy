@@ -51,6 +51,8 @@
         <item name="android:textViewStyle">@style/Widget.Gauzy.TextView</item>
 
         <item name="materialCardViewStyle">@style/Widget.Gauzy.MaterialCardView</item>
+        <item name="android:buttonStyle">@style/Widget.Gauzy.Button</item>
+        <item name="materialButtonStyle">@style/Widget.Gauzy.Button</item>
 
 
     </style>

@@ -45,10 +45,10 @@ class SharedViewModel(
             snapshot?.let { querySnapshot ->
                 val allComponents = ArrayList<ComponentModel>()
 
-                querySnapshot.documents.forEach { it ->
-                    Timber.d("${it.id}")
-                    val docId: String = it.id
-                    it.data?.let { data ->
+                querySnapshot.documents.forEach { doc ->
+                    Timber.d(doc.id)
+                    val docId: String = doc.id
+                    doc.data?.let { data ->
                         val componentModel = ComponentModel(
                             docId = docId,
                             score = data["score"] as Double,
@@ -78,6 +78,15 @@ class SharedViewModel(
     fun setSelectedComponent(componentModel: ComponentModel) {
         _selectedComponent.postValue(componentModel)
         listenReviews(componentModel.docId)
+    }
+
+    /**
+     * Current review
+     */
+    private val _ownReview : MutableLiveData<ReviewModel> = MutableLiveData()
+    val getOwnReview : LiveData<ReviewModel> = _ownReview
+    fun setOwnReview(review: ReviewModel?){
+       _ownReview.postValue(review)
     }
 
     /**
@@ -115,13 +124,27 @@ class SharedViewModel(
 
                             Timber.d("Score data type: ${data["score"]!!::class.simpleName}")
 
+
                             val reviewModel : ReviewModel = ReviewModel(
                                 comment = data["comment"] as String,
                                 score = data["score"] as Double,
                                 user = data["user"] as DocumentReference,
                                 userDisplayName = data ["userDisplayName"] as String
                             )
-                            allReviews.add(reviewModel)
+
+                            // If the review is form the user, do not show it
+                            if(reviewModel.userDisplayName != userSession.displayName){
+
+                                allReviews.add(reviewModel)
+                            } else{
+
+                                // Add at the beginning
+                                setOwnReview(reviewModel)
+
+                            }
+
+
+
 
                         }
 
@@ -152,24 +175,67 @@ class SharedViewModel(
 
 
         _selectedComponent.value?.docId?.let {
-            if (targetReview != null) {
-                db
-                    .collection("component-collection")
-                    .document(it)
-                    .collection("review-collection")
-                    .add(
-                        targetReview
-                    )
-                    .addOnSuccessListener {
-                        Timber.i("Review added")
-                    }
-                    .addOnFailureListener { e ->
-                        Timber.e(e, "Error adding review")
-                    }
-            }
+            db
+                .collection("component-collection")
+                .document(it)
+                .collection("review-collection")
+                .add(
+                    targetReview
+                )
+                .addOnSuccessListener {
+                    Timber.i("Review added")
+                }
+                .addOnFailureListener { e ->
+                    Timber.e(e, "Error adding review")
+                }
         }
 
     }
+
+    /** List of components to the search screen */
+    private val _filteredComponents = MutableLiveData<List<ComponentModel>>()
+    val getFilteredComponents: LiveData<List<ComponentModel>> = _filteredComponents
+
+    /**
+     * Busca en la base de datos
+     */
+    fun filterComponents(targetName: String, targetCareer: String = "ALL"){
+        val filteredComponents = ArrayList<ComponentModel>()
+        _filteredComponents.postValue(filteredComponents)
+
+        db
+            .collection("component-collection")
+            .whereEqualTo("name", targetName)
+            .get()
+            .addOnCompleteListener {
+
+                it.result?.forEach { doc ->
+
+                    Timber.d(doc.id)
+                    val docId: String = doc.id
+                    doc.data.let { data ->
+                        val componentModel = ComponentModel(
+                            docId = docId,
+                            score = data["score"] as Double,
+                            career = data["career"] as String,
+                            name = data["name"] as String,
+                            reviewsNumber = data["reviewsNumber"] as Long
+                        )
+                        filteredComponents.add(componentModel)
+                    }
+
+
+
+
+                    Timber.d("Components: $filteredComponents")
+                    _filteredComponents.postValue(filteredComponents)
+
+                }
+            }
+
+
+    }
+
 
     /**
      * Create a document for the user to allow it be referenced
